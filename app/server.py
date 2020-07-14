@@ -11,7 +11,7 @@ import uvicorn, aiohttp, asyncio
 import base64, sys, numpy as np
 
 path = Path(__file__).parent
-model_file_url = 'YOUR MODEL.h5 DIRECT / RAW DOWNLOAD URL HERE!'
+model_file_url = 'https://github.com/ashwingupy/Pneumonia_Classification/blob/master/mobilenet-1-dense-32.h5'
 model_file_name = 'model'
 
 app = Starlette()
