@@ -9,7 +9,8 @@ import re
 import numpy as np
 
 # Keras
-from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
+#from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
@@ -28,9 +29,6 @@ MODEL_PATH ='mobilenet-1-dense-32.h5'
 model = load_model(MODEL_PATH)
 
 
-
-
-
 def model_predict(img_path, model):
     img = image.load_img(img_path, target_size=(224, 224))
 
@@ -38,7 +36,7 @@ def model_predict(img_path, model):
     x = image.img_to_array(img)
     # x = np.true_divide(x, 255)
     ## Scaling
-    x=x/255
+    x = x/255
     x = np.expand_dims(x, axis=0)
    
 
@@ -53,7 +51,6 @@ def model_predict(img_path, model):
         preds="The Person is Infected With Pneumonia"
     else:
         preds="The Person is not Infected With Pneumonia"
-    
     
     return preds
 
@@ -78,10 +75,9 @@ def upload():
 
         # Make prediction
         preds = model_predict(file_path, model)
-        result=preds
+        result = preds
         return result
     return None
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=8080)

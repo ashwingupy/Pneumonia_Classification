@@ -2,4 +2,8 @@ flask
 numpy
 tensorflow
 keras
+<<<<<<< 94499f76ff78f5f6b8cf207df68fbf46bc60d976
 pillow
+=======
+pillow
+>>>>>>> Final AWS Deployment Update
